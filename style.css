@@ -1,28 +1,86 @@
+/*  global */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: lightblue;
-  color: black;
-  min-height: 100vh;
-  display: flex; 
-  justify-content: center;
-  align-items: start;
-  padding: 2rem;
+  font-family: 'Pixelify Sans', sans-serif;
+  background-color: #fcefe6;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: #333;
 }
-
-/* APP CONTAINER */
-#myApp {
+html, body {
+  height: 100%;
   width: 100%;
-  max-width: auto;
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow-x: hidden;
 }
-
-/* MOBILE FIRST */
-@media (max-width: 768px) {
-  #myApp {
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
+.pixel-font {
+  font-family: 'Pixelify Sans', sans-serif;
+}
+.map-item {
+  position: absolute;
+  image-rendering: pixelated;
+  pointer-events: none;
+  z-index: 0;
+}
+.cat-sprite {
+  width: 64px;
+  height: 64px;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  transition: transform 0.2s;
+  position: absolute;
+  z-index: 2;
+}
+/* top */
+#top-bar {
+  background-color: #fff6dd;
+  border-bottom: 2px solid #e3c77f;
+  font-size: 1.1rem;
+}
+/* action panel */
+#action-panel {
+  background-color: #fffbe7;
+  border-top: 2px dashed #ffdd80;
+  border-bottom: 2px dashed #ffdd80;
+  padding: 0.5rem;
+}
+.action-icon {
+  width: 48px;
+  height: 48px;
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
+.action-icon:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+/* background map */
+#map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: 1020px;
+  background-image: url('./neko_assets/Background/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+.overlay-item {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.cat-drop-zone {
+  position: absolute;
+  width: 64px;
+  height: 64px;
 }
