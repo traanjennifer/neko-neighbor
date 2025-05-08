@@ -1,0 +1,28 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: lightblue;
+  color: black;
+  min-height: 100vh;
+  display: flex; 
+  justify-content: center;
+  align-items: start;
+  padding: 2rem;
+}
+
+/* APP CONTAINER */
+#myApp {
+  width: 100%;
+  max-width: auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* MOBILE FIRST */
+@media (max-width: 768px) {
+  #myApp {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+}
