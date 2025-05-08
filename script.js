@@ -44,6 +44,8 @@ const myApp = Vue.createApp({
     setAction(actionType) {
       this.selectedAction = actionType;
     },
+
+    // drag and drop play action -- users interact w  cats by dragging yarn ball onto them. when dropped, cat plays and earns experience and coins, and a yarn animation briefly appears next to cat and disappears after 10 seconds
     async handleDrop(cat) {
       if (!this.selectedAction) return;
       const userRef = doc(db, 'users', this.userId);
@@ -70,6 +72,8 @@ const myApp = Vue.createApp({
       setTimeout(() => updateDoc(catRef, { status: 'sitting' }), 10000);
       this.selectedAction = null;
     },
+
+    // Add new cat feature generates new cats w button and costs 50 coins. new cat appears as a stray on left side and pulls sprite data from list of cats
     async addNewCat() {
       if (this.user.coins < 50) return alert("Not enough coins!");
       const userRef = doc(db, 'users', this.userId);
@@ -87,6 +91,7 @@ const myApp = Vue.createApp({
       await setDoc(doc(collection(db, 'cats')), newCat);
       await updateDoc(userRef, { coins: increment(-50) });
     },
+
     catAnimation(cat) {
       if (cat.status === 'sleeping') return 'sleep';
       if (cat.status === 'playing') return 'play';
